@@ -1,0 +1,36 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: auto;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-content {
+  flex:1;
+  padding: 20px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
