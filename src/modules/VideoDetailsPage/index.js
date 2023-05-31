@@ -1,13 +1,27 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setModalStatus } from "../../logic/action";
+import { useNavigate,useParams } from "react-router-dom";
+import { setModalStatus,selectVideo } from "../../logic/action";
+import { videos } from "../../utils/VideosData";
 import "./style.css";
 
 
 const VideoDetailsPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const {id} = useParams();
   const selectedVideo = useSelector((state) => state.selectedVideo);
+
+  useEffect(()=>{
+    if(selectedVideo === null){
+      updateSelectedVideo()
+    }
+  },[id])
+
+  const updateSelectedVideo = () =>{
+    const tempSelectedVideo = videos?.find((video)=>video?.id === Number(id));
+    dispatch(selectVideo(tempSelectedVideo));
+  }
 
   const handlePlay = () => {
     navigate(-1);

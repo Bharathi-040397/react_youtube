@@ -17,7 +17,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      {modalOpen && <VideoModal video={selectedVideo} />}
+      {modalOpen && <VideoModal />}
     </>
   );
 };

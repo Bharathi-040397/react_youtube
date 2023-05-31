@@ -1,9 +1,10 @@
 import { createPortal } from "react-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setModalStatus, selectVideo } from "../../logic/action";
 import "./style.css";
 
-const VideoModal = ({ video }) => {
+const VideoModal = () => {
+  const video = useSelector((state) => state.selectedVideo);
   const dispatch = useDispatch();
 
   const handleModalClose = () => {
